@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 17, 24, 39;
+  --background-end-rgb: 17, 24, 39;
+  --gold-primary: #C38F2F;
+  --gold-secondary: #C89F57;
+  --gold-light: #EFE5D4;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+    to bottom,
+    rgb(var(--background-start-rgb)),
+    rgb(var(--background-end-rgb))
+  );
+}
+
+@layer components {
+  .glass-card {
+    @apply backdrop-blur-md bg-white/10 border border-white/20 shadow-lg;
+  }
+
+  .golden-glow {
+    @apply shadow-[0_0_15px_rgba(195,143,47,0.3)] hover:shadow-[0_0_25px_rgba(195,143,47,0.5)] transition-shadow duration-300;
+  }
+
+  .golden-gradient {
+    @apply bg-gradient-to-r from-[#C38F2F] via-[#C89F57] to-[#C38F2F];
+  }
+
+  .golden-border {
+    @apply border-2 border-[#C38F2F] hover:border-[#C89F57] transition-colors duration-300;
+  }
+
+  .btn-primary {
+    @apply px-4 py-2 bg-[#C38F2F] text-white rounded-lg hover:bg-[#A97C29] transition-all duration-300 shadow-lg hover:scale-105;
+  }
+  
+  .btn-secondary {
+    @apply px-4 py-2 bg-[#1B1B1B] text-white rounded-lg hover:bg-[#5D4B3C] transition-all duration-300 shadow-lg hover:scale-105;
+  }
+  
+  .input-field {
+    @apply px-4 py-2 bg-white/10 text-white rounded-lg border border-[#C38F2F]/40 focus:border-[#C38F2F] focus:ring-2 focus:ring-[#C38F2F]/30 transition-all duration-300 outline-none;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 1s ease;
+  }
+
+  .animate-fade-in-up {
+    animation: fadeInUp 1.2s cubic-bezier(.39,.575,.565,1) both;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.5s cubic-bezier(.39,.575,.565,1) both;
+  }
+
+  .animate-slide-in {
+    animation: slideIn 0.5s cubic-bezier(.39,.575,.565,1) both;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(40px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+  0% { opacity: 0; transform: scale(0.9); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes slideIn {
+  0% { opacity: 0; transform: translateX(-20px); }
+  100% { opacity: 1; transform: translateX(0); }
+} 
